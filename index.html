@@ -9,8 +9,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Zincir - Alışkanlık Takibi</title>
     
-    <link rel="manifest" href="/manifest.json">
-    <link rel="apple-touch-icon" href="/icon-192.png">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./icon-192.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -69,7 +69,8 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js', { scope: '/' })
+          // Use relative path './sw.js' to match the current origin correctly
+          navigator.serviceWorker.register('./sw.js')
             .then(registration => {
               console.log('SW Registered with scope:', registration.scope);
             })
