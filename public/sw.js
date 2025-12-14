@@ -1,4 +1,5 @@
-const CACHE_NAME = 'zincir-v6';
+const CACHE_NAME = 'zincir-v7';
+// We use relative paths './' to ensure it works in subdirectories/preview URLs
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -8,18 +9,18 @@ const ASSETS_TO_CACHE = [
   'https://cdn.tailwindcss.com'
 ];
 
-// Install Event: Cache critical assets
+// Install Event
 self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[SW] Caching shell assets');
+      console.log('[SW] Caching assets');
       return cache.addAll(ASSETS_TO_CACHE);
     })
   );
 });
 
-// Activate Event: Clean up old caches
+// Activate Event
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
@@ -31,18 +32,21 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch Event: Network First, falling back to Cache
+// Fetch Event
 self.addEventListener('fetch', (event) => {
+  // Only handle http/https requests
+  if (!event.request.url.startsWith('http')) return;
+
   const url = new URL(event.request.url);
 
-  // Handle static assets (images, css, js) with Cache First strategy for performance
-  if (url.pathname.match(/\.(png|jpg|jpeg|svg|css|js|ico)$/) || url.hostname === 'cdn.tailwindcss.com') {
+  // Strategy: Cache First for static assets (images, styles)
+  if (url.pathname.match(/\.(png|jpg|jpeg|svg|css|js|ico|json)$/) || url.hostname === 'cdn.tailwindcss.com') {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
-        return cachedResponse || fetch(event.request).then((response) => {
+        return cachedResponse || fetch(event.request).then((networkResponse) => {
           return caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, response.clone());
-            return response;
+            cache.put(event.request, networkResponse.clone());
+            return networkResponse;
           });
         });
       })
@@ -50,11 +54,10 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Handle Page Navigation (HTML) with Network First
+  // Strategy: Network First for HTML/Navigation (ensures updates are seen)
   event.respondWith(
     fetch(event.request)
       .then((response) => {
-        // Update cache with new version
         const responseClone = response.clone();
         caches.open(CACHE_NAME).then((cache) => {
           cache.put(event.request, responseClone);
@@ -62,10 +65,9 @@ self.addEventListener('fetch', (event) => {
         return response;
       })
       .catch(() => {
-        // If offline, try cache
         return caches.match(event.request).then((cachedResponse) => {
           if (cachedResponse) return cachedResponse;
-          // Fallback to index.html for SPA routing
+          // SPA Fallback
           if (event.request.mode === 'navigate') {
             return caches.match('./index.html');
           }
