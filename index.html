@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#faf9f6" />
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Zincir">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Zincir - Alışkanlık Takibi</title>
     
@@ -68,12 +69,12 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
+          navigator.serviceWorker.register('/sw.js', { scope: '/' })
             .then(registration => {
-              console.log('SW Registered:', registration);
+              console.log('SW Registered with scope:', registration.scope);
             })
             .catch(error => {
-              console.log('SW Registration failed:', error);
+              console.error('SW Registration failed:', error);
             });
         });
       }
