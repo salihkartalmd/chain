@@ -1,20 +1,40 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Zincir (Chain) - Alışkanlık Takip Uygulaması
 
-# Run and deploy your AI Studio app
+Bu proje React, TypeScript ve Vite ile oluşturulmuş, PWA (Progressive Web App) özelliklerine sahip bir alışkanlık takip uygulamasıdır.
 
-This contains everything you need to run your app locally.
+## Kurulum
 
-View your app in AI Studio: https://ai.studio/apps/drive/19ohelg5MP2OMUuva9SyURuk3MAb9nqI5
+1. Bağımlılıkları yükleyin:
+   ```bash
+   npm install
+   ```
 
-## Run Locally
+2. Geliştirme sunucusunu başlatın:
+   ```bash
+   npm run dev
+   ```
 
-**Prerequisites:**  Node.js
+## PWA Testi
 
+PWA özelliklerini (yüklenebilirlik, çevrimdışı mod) test etmek için uygulamayı "build" etmeniz ve önizleme modunda çalıştırmanız gerekir. **Sadece dosyayı tarayıcıda açmak PWA'yı çalıştırmaz.**
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. Uygulamayı derleyin:
+   ```bash
+   npm run build
+   ```
+
+2. Önizleme sunucusunu başlatın:
+   ```bash
+   npm run preview
+   ```
+
+3. Tarayıcıda verilen localhost adresine gidin (örn: http://localhost:4173). Adres çubuğunda "Yükle" simgesini göreceksiniz.
+
+## Klasör Yapısı
+
+- `public/`: Statik dosyalar (manifest.json, sw.js, ikonlar) burada durmalıdır.
+- `src/`: Kaynak kodlar (components, App.tsx vb.)
+
+## Notlar
+
+- İkonların (`icon-192.png` ve `icon-512.png`) `public` klasörü içinde olduğundan emin olun.
