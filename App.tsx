@@ -104,11 +104,11 @@ const App: React.FC = () => {
         <div className="flex justify-between items-center">
           <div>
             <h1 className="text-2xl font-bold text-coffee-900 dark:text-coffee-50 tracking-tight transition-colors">
-              {t.titles[view]}
+              {t.titles[view as keyof typeof t.titles]}
             </h1>
             <p className="text-coffee-400 dark:text-coffee-500 text-sm font-medium transition-colors">
               {view === ViewMode.DAILY && today.toLocaleDateString(locale, { weekday: 'long', day: 'numeric', month: 'long' })}
-              {view !== ViewMode.DAILY && t.subtitles[view]}
+              {view !== ViewMode.DAILY && t.subtitles[view as keyof typeof t.subtitles]}
             </p>
           </div>
           {view !== ViewMode.SETTINGS && (
@@ -155,7 +155,7 @@ const App: React.FC = () => {
             <div className={`p-1 rounded-full ${view === ViewMode.DAILY ? 'bg-coffee-50 dark:bg-coffee-800' : ''}`}>
               <ListIcon className="w-6 h-6" />
             </div>
-            {view === ViewMode.DAILY && <span className="text-[10px] font-bold">{t.tabs.list}</span>}
+            {view === ViewMode.DAILY && <span className="text-[10px] font-bold">{t.tabs.daily}</span>}
           </button>
           
           <button 

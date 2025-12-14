@@ -52,9 +52,9 @@ export const LOCALES: Record<Language, string> = {
 
 export const TRANSLATIONS = {
   en: {
-    tabs: { list: 'Today', calendar: 'Calendar', stats: 'Analysis', settings: 'Settings' },
-    titles: { list: 'Today', calendar: 'Calendar', stats: 'Analysis', settings: 'Settings' },
-    subtitles: { list: 'Daily Overview', calendar: 'Monthly View', stats: 'Status Summary', settings: 'Preferences' },
+    tabs: { daily: 'Today', calendar: 'Calendar', stats: 'Analysis', settings: 'Settings' },
+    titles: { daily: 'Today', calendar: 'Calendar', stats: 'Analysis', settings: 'Settings' },
+    subtitles: { daily: 'Daily Overview', calendar: 'Monthly View', stats: 'Status Summary', settings: 'Preferences' },
     habitTypes: { [HabitType.BUILD]: 'Build', [HabitType.QUIT]: 'Quit' },
     emptyList: { title: 'No chains in this category.', subtitle: 'Start something new.' },
     streak: 'day streak',
@@ -96,13 +96,13 @@ export const TRANSLATIONS = {
       darkMode: 'Dark Mode',
       lightMode: 'Light Mode',
       about: 'About',
-      version: 'Version 1.2.0'
+      version: 'Version 1.2.1'
     }
   },
   tr: {
-    tabs: { list: 'Liste', calendar: 'Takvim', stats: 'Analiz', settings: 'Ayarlar' },
-    titles: { list: 'Bugün', calendar: 'Takvim', stats: 'Analiz', settings: 'Ayarlar' },
-    subtitles: { list: 'Günün Özeti', calendar: 'Aylık Bakış', stats: 'Durum Özeti', settings: 'Tercihler' },
+    tabs: { daily: 'Liste', calendar: 'Takvim', stats: 'Analiz', settings: 'Ayarlar' },
+    titles: { daily: 'Bugün', calendar: 'Takvim', stats: 'Analiz', settings: 'Ayarlar' },
+    subtitles: { daily: 'Günün Özeti', calendar: 'Aylık Bakış', stats: 'Durum Özeti', settings: 'Tercihler' },
     habitTypes: { [HabitType.BUILD]: 'Edinme', [HabitType.QUIT]: 'Kurtulma' },
     emptyList: { title: 'Bu kategoride zincir yok.', subtitle: 'Yeni bir başlangıç yap.' },
     streak: 'gün serisi',
@@ -144,13 +144,13 @@ export const TRANSLATIONS = {
       darkMode: 'Koyu Mod',
       lightMode: 'Açık Mod',
       about: 'Hakkında',
-      version: 'Versiyon 1.2.0'
+      version: 'Versiyon 1.2.1'
     }
   },
   de: {
-    tabs: { list: 'Liste', calendar: 'Kalender', stats: 'Statistik', settings: 'Einst.' },
-    titles: { list: 'Heute', calendar: 'Kalender', stats: 'Statistik', settings: 'Einstellungen' },
-    subtitles: { list: 'Tagesübersicht', calendar: 'Monatsansicht', stats: 'Zusammenfassung', settings: 'Präferenzen' },
+    tabs: { daily: 'Liste', calendar: 'Kalender', stats: 'Statistik', settings: 'Einst.' },
+    titles: { daily: 'Heute', calendar: 'Kalender', stats: 'Statistik', settings: 'Einstellungen' },
+    subtitles: { daily: 'Tagesübersicht', calendar: 'Monatsansicht', stats: 'Zusammenfassung', settings: 'Präferenzen' },
     habitTypes: { [HabitType.BUILD]: 'Aufbau', [HabitType.QUIT]: 'Aufgabe' },
     emptyList: { title: 'Keine Gewohnheiten.', subtitle: 'Starte etwas Neues.' },
     streak: 'Tage Folge',
@@ -192,13 +192,13 @@ export const TRANSLATIONS = {
       darkMode: 'Dunkelmodus',
       lightMode: 'Heller Modus',
       about: 'Über',
-      version: 'Version 1.2.0'
+      version: 'Version 1.2.1'
     }
   },
   es: {
-    tabs: { list: 'Hoy', calendar: 'Calendario', stats: 'Análisis', settings: 'Ajustes' },
-    titles: { list: 'Hoy', calendar: 'Calendario', stats: 'Análisis', settings: 'Ajustes' },
-    subtitles: { list: 'Resumen Diario', calendar: 'Vista Mensual', stats: 'Resumen de Estado', settings: 'Preferencias' },
+    tabs: { daily: 'Hoy', calendar: 'Calendario', stats: 'Análisis', settings: 'Ajustes' },
+    titles: { daily: 'Hoy', calendar: 'Calendario', stats: 'Análisis', settings: 'Ajustes' },
+    subtitles: { daily: 'Resumen Diario', calendar: 'Vista Mensual', stats: 'Resumen de Estado', settings: 'Preferencias' },
     habitTypes: { [HabitType.BUILD]: 'Crear', [HabitType.QUIT]: 'Dejar' },
     emptyList: { title: 'No hay hábitos.', subtitle: 'Empieza algo nuevo.' },
     streak: 'días racha',
@@ -240,13 +240,13 @@ export const TRANSLATIONS = {
       darkMode: 'Modo Oscuro',
       lightMode: 'Modo Claro',
       about: 'Acerca de',
-      version: 'Versión 1.2.0'
+      version: 'Versión 1.2.1'
     }
   },
   ar: {
-    tabs: { list: 'اليوم', calendar: 'التقويم', stats: 'تحليل', settings: 'إعدادات' },
-    titles: { list: 'اليوم', calendar: 'التقويم', stats: 'تحليل', settings: 'الإعدادات' },
-    subtitles: { list: 'ملخص اليوم', calendar: 'عرض شهري', stats: 'ملخص الحالة', settings: 'التفضيلات' },
+    tabs: { daily: 'اليوم', calendar: 'التقويم', stats: 'تحليل', settings: 'إعدادات' },
+    titles: { daily: 'اليوم', calendar: 'التقويم', stats: 'تحليل', settings: 'الإعدادات' },
+    subtitles: { daily: 'ملخص اليوم', calendar: 'عرض شهري', stats: 'ملخص الحالة', settings: 'التفضيلات' },
     habitTypes: { [HabitType.BUILD]: 'اكتساب', [HabitType.QUIT]: 'إقلاع' },
     emptyList: { title: 'لا توجد عادات.', subtitle: 'ابدأ شيئاً جديداً.' },
     streak: 'أيام متتالية',
@@ -288,7 +288,7 @@ export const TRANSLATIONS = {
       darkMode: 'الوضع الداكن',
       lightMode: 'الوضع الفاتح',
       about: 'حول',
-      version: 'الإصدار 1.2.0'
+      version: 'الإصدار 1.2.1'
     }
   }
 };
